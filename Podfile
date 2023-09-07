@@ -7,4 +7,6 @@ target 'Weather1.0' do
 
   # Pods for Weather1.0
 	pod 'Alamofire'
+  pod 'SwiftyJSON', '~> 4.0'
+
 end
