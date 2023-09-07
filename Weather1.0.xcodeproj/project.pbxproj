@@ -75,6 +75,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F934ABAB2AAA140900F98B8E /* WeatherNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F9C133A72A9BA5A2001C31E6 /* WeatherRequests.swift */,
+				F97846202AA24C70006CAC35 /* WeatherNetworkDispatcher.swift */,
+				F97846262AA25B3C006CAC35 /* WeatherNetworkTask.swift */,
+			);
+			path = WeatherNetworking;
+			sourceTree = "<group>";
+		};
 		F95E90272A94F86B00AA559D = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +109,9 @@
 				F9C133A42A9BA4C2001C31E6 /* Networking */,
 				F95E90472A94FAE700AA559D /* Models */,
 				F95E90482A94FAF100AA559D /* Views */,
-				F95E90492A94FB0200AA559D /* ViewModel */,
+				F95E90492A94FB0200AA559D /* ViewModels */,
+				F9FFEC322AC17D2E00C21077 /* Services */,
+				F9FFEC312AC17D2300C21077 /* Coordinators */,
 				F95E90332A94F86B00AA559D /* AppDelegate.swift */,
 				F95E90352A94F86B00AA559D /* SceneDelegate.swift */,
 				F95E903C2A94F86C00AA559D /* Assets.xcassets */,
@@ -112,6 +124,8 @@
 		F95E90472A94FAE700AA559D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F97846282AA25E3F006CAC35 /* CurrentWeatherModel.swift */,
+				F978462A2AA3BF93006CAC35 /* SearchAutoCompleteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,11 +137,11 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F95E90492A94FB0200AA559D /* ViewModel */ = {
+		F95E90492A94FB0200AA559D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F9C133A12A9B99B5001C31E6 /* NetworkLayers */ = {
@@ -146,13 +160,23 @@
 			isa = PBXGroup;
 			children = (
 				F9C133A12A9B99B5001C31E6 /* NetworkLayers */,
-				F9C133A72A9BA5A2001C31E6 /* WeatherRequests.swift */,
-				F97846202AA24C70006CAC35 /* WeatherNetworkDispatcher.swift */,
-				F97846262AA25B3C006CAC35 /* WeatherNetworkTask.swift */,
-				F97846282AA25E3F006CAC35 /* CurrentWeatherModel.swift */,
-				F978462A2AA3BF93006CAC35 /* SearchAutoCompleteModel.swift */,
+				F934ABAB2AAA140900F98B8E /* WeatherNetworking */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		F9FFEC312AC17D2300C21077 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		F9FFEC322AC17D2E00C21077 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +209,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F95E902F2A94F86B00AA559D = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -334,6 +358,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -348,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -394,6 +419,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -402,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -423,6 +449,7 @@
 				DEVELOPMENT_TEAM = 53FDVL354X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather1.0/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -435,9 +462,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weather.lt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -452,6 +482,7 @@
 				DEVELOPMENT_TEAM = 53FDVL354X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Weather1.0/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -464,9 +495,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weather.lt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

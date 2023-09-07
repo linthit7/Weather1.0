@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '13.0'
 
 target 'Weather1.0' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,6 +7,6 @@ target 'Weather1.0' do
 
   # Pods for Weather1.0
 	pod 'Alamofire'
-  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SwiftyJSON'
 
 end

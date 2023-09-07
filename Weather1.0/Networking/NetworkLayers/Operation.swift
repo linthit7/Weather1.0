@@ -15,6 +15,6 @@ protocol Operation {
     ///
     /// - Parameter dispatcher: dispatcher
     /// - Returns: a promise
-    func execute(in dispatcher: Dispatcher, for request: RequestType, completion: @escaping (Output?) -> Void)
+    func execute(in dispatcher: Dispatcher, for request: RequestType, completion: @escaping (Output) -> Void)
     
 }
